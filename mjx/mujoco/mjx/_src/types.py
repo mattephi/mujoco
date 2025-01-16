@@ -1245,6 +1245,7 @@ class Data(PyTreeNode):
     ncon: number of contacts
     solver_niter: number of solver iterations
     time: simulation time
+    energy: potential, kinetic energy (2, )
     qpos: position                                              (nq,)
     qvel: velocity                                              (nv,)
     act: actuator activation                                    (na,)
@@ -1359,7 +1360,6 @@ class Data(PyTreeNode):
     _qM_sparse: qM in sparse representation                     (nM,)
     _qLD_sparse: qLD in sparse representation                   (nC,)
     _qLDiagInv_sparse: qLDiagInv in sparse representation       (nv,)
-    energy: potential, kinetic energy (2, )
   """  # fmt: skip
   # constant sizes:
   ne: int
@@ -1371,6 +1371,7 @@ class Data(PyTreeNode):
   solver_niter: jax.Array
   # global properties:
   time: jax.Array
+  energy: jax.Array
   # state:
   qpos: jax.Array
   qvel: jax.Array
@@ -1495,4 +1496,3 @@ class Data(PyTreeNode):
   _qM_sparse: jax.Array = _restricted_to('mjx')  # pylint:disable=invalid-name
   _qLD_sparse: jax.Array = _restricted_to('mjx')  # pylint:disable=invalid-name
   _qLDiagInv_sparse: jax.Array = _restricted_to('mjx')  # pylint:disable=invalid-name
-  energy: jax.Array
