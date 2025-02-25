@@ -103,11 +103,14 @@ class IntegratorType(enum.IntEnum):
     EULER: semi-implicit Euler
     RK4: 4th-order Runge Kutta
     IMPLICITFAST: implicit in velocity, no rne derivative
+    VARIATIONAL: Discrete Euler-Lagrange in Momentum form
   """
 
   EULER = mujoco.mjtIntegrator.mjINT_EULER
   RK4 = mujoco.mjtIntegrator.mjINT_RK4
   IMPLICITFAST = mujoco.mjtIntegrator.mjINT_IMPLICITFAST
+  # TODO: Modify the mujoco source ENUM
+  VARIATIONAL = 42
   # unsupported: IMPLICIT
 
 
